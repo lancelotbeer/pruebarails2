@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= works_path %>">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= to_buy_path%>"><%= current_user.task_count %> Completadas</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="<%= destroy_user_session_path%> " data-method="delete" >salir</a>
+      </li>
+      <% end %>
+    </ul>
+
+  </div>
+</nav>

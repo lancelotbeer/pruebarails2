@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <% @works.each_slice(3) do |row| %>
+    <% row.each do |work| %>
+        <div class="col">
+          <div class="card">
+              <%= image_tag work.photo, class:'img-fluid'%>
+            <div class="body">
+              <h5>  <%= work.name %></h5>
+              <% if work.check_completed(current_user)%>
+                <%= link_to "corregir", work_to_buy_path(work, current_user),method: :delete, class: 'btn btn-danger' %>
+                  <% else %>
+                <%= link_to "completar", work_to_buys_path(work),method: :post, class: 'btn btn-success' %>
+              <% end %>
+              <%= link_to "ver detalle", work_path(work), class: 'btn btn-success' %>
+            </div>
+          </div>
+       </div>
+    <% end %>
+    <div class="w-100"> </div>
+    <% end %>
+  </div>
+</div>
